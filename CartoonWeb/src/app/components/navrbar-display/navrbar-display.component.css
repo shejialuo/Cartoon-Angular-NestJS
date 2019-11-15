@@ -1,0 +1,41 @@
+/*导航条的CSS设置已经全部完成*/
+
+
+/*对导航条进行修饰*/
+.container {
+    padding: 20px;
+    margin: 60px 20px;
+  }
+/*同样对导航条进行修饰*/
+.TOH-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    z-index: 8964;
+    background-color: rgba(10,10,0,0.7);
+    border-color: #080808;
+    color: white;
+}
+/*设置图标之间的间距*/  
+  .icon {
+    padding: 0 5px;
+}
+/*实现对作者展示的修饰*/
+.example-div1{
+  padding: 0 10px;
+}
+
+/*利用一个div块实现导航条居中*/
+.example-div2{
+    margin-right: auto;
+    margin-left: auto;
+}
+/*利用一个div块实现左漂浮*/
+.example-div3{
+  float: right;
+}
+.a1:hover{
+  background-color: purple;
+}

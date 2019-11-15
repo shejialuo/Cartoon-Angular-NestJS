@@ -1,0 +1,32 @@
+<div class="example-div1">
+    <div class="example-div2">
+        <div class="example-div3">
+            <div class="example-div4">
+                 <mat-card class="container">
+                    <mat-card-content>
+                        <h1 style="text-align: center;">关于若干注意事项(新人必读)</h1>
+                        <h3 style="text-align: center;">本网站拟打造一个优秀的动漫评论平台,请遵守以下社区规定</h3>
+                        
+                    </mat-card-content>
+                 </mat-card>
+                 <mat-card class="container">
+                    <mat-card-content>
+                            <mat-list>
+                                <h3 mat-subheader>注意事项</h3>
+                                <mat-list-item *ngFor="let infoes of info">
+                                      <mat-icon mat-list-icon>error_outline</mat-icon>
+                                      <h4 mat-line>{{infoes.information}}</h4>
+                                </mat-list-item> 
+                            </mat-list>
+                    </mat-card-content>
+                 </mat-card>
+                 <mat-card class="container">
+                     <mat-card-content>
+                         <p>最后，希望大家能在这个社区玩得开心。</p>
+                     </mat-card-content>
+                 </mat-card>
+            </div>
+        </div>
+    </div>
+</div>     
+

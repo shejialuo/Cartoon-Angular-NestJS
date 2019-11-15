@@ -1,0 +1,104 @@
+<!-- 此HTML实现用户注册界面的实现 -->
+
+<!-- 块级区域的设计，设计的目的在于方便整体的布局 -->
+
+<div class="example-div1">
+
+  <!-- Angualr Material 卡片的使用作标签 -->
+
+  <mat-card class="example-mat-card">{{content}}</mat-card>
+
+  <!-- Angular Material 竖直步进器的使用 -->
+  <!-- 必须按照线性顺序进行，设置属性linear为true -->
+
+  <mat-vertical-stepper linear=true #stepper class="example-mat">
+
+    <!-- 第一个步进器的使用 -->
+
+    <mat-step [stepControl]="firstFormGroup" >
+      <form [formGroup]="firstFormGroup" class="form1">
+        <ng-template matStepLabel>{{step1}}</ng-template>
+
+        <!-- 第一个输入框为用户名输入框，必须输入，且不能重名。 -->
+
+        <mat-form-field>
+          <input #nameinput matInput placeholder="请输入你注册的用户名" 
+            formControlName="username"  minlength="6"
+            required isSame> <!-- 通过模板变量获取值 -->
+            <mat-error *ngIf="!firstFormGroup.controls.username.hasError('minlength')&&firstFormGroup.controls.username.errors">
+              用户名已经重名请修改</mat-error>
+              <mat-error *ngIf="firstFormGroup.controls.username.hasError('minlength')">
+                至少输入6位及6位以上的用户名</mat-error>
+
+        </mat-form-field>
+
+        <!-- 第二个输入框为用户密码输入框，必须输入，且大于6位 -->
+
+        <mat-form-field>
+          <input #passwordinput  type="password" matInput placeholder="请输入您的密码"  
+            formControlName="userprepassword" required minlength="6"><!-- 通过模板变量获取值 -->
+
+          <!-- 错误信息的设置 -->
+
+          <mat-error *ngIf="firstFormGroup.controls.userprepassword.hasError('minlength')">
+              至少输入6位及6位以上的密码</mat-error>
+            
+        </mat-form-field>
+
+          <!-- 第三个输入框为用户密码输入框，必须输入，且要实现双向监听 -->
+
+        <mat-form-field>
+            <input   type="password" matInput placeholder="请确认您的密码" 
+            formControlName="userpostpassword" required isSame >
+            <mat-error *ngIf="firstFormGroup.controls.userpostpassword.errors">
+            两次输入的密码不一致请修改</mat-error>
+        </mat-form-field>
+
+          <!-- 下一步按钮的设置 -->
+
+        <div>
+            <button  mat-button matStepperNext>下一步</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <!-- 第二个步进器的使用 -->
+
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup" class="form1">
+        <ng-template matStepLabel>{{step2}}</ng-template>
+        <mat-form-field>
+          <input #emailer matInput 
+          placeholder="请输入您的电子邮箱" formControlName="email" required email>
+          <!-- 此处的逻辑设计为当邮箱格式不正确时调用Angular Material的API提醒用户-->
+          <mat-error *ngIf="secondFormGroup.controls.email.hasError('email')">
+              请输入正确的邮箱地址</mat-error>
+        </mat-form-field> 
+        <!-- 此处的逻辑设计为当邮箱格式不正确的时候以及当没有任何信息输入时,无法使用发送验证信息按钮-->
+        <!-- 当用户输入正确的邮箱信息后,点击按钮,生成随机的四位验证码通过协议发送到用户的邮箱  -->
+        <button mat-button (click)="email(emailer.value)"
+        [disabled]="secondFormGroup.controls.email.hasError('email')
+        ||secondFormGroup.controls.email.hasError('required')" >发送验证信息</button>
+        <mat-form-field >
+            <input  #checknum matInput placeholder="请输入收到的验证码" formControlName="checkpassword" required >
+            <mat-hint *ngIf="flag" class="example-hint"> 验证码输入正确，欢迎您</mat-hint>
+        </mat-form-field>
+        <button mat-button (click)="check(checknum.value)"
+        [disabled]="secondFormGroup.controls.checkpassword.hasError('required')" >提交验证码</button>
+        <div>
+          <button mat-button matStepperNext [disabled]="!flag"  >下一步</button>
+        </div>
+      </form>
+    </mat-step>
+      <!-- 第三个步进器的使用 -->
+      <mat-step>
+        <ng-template matStepLabel >完成</ng-template>
+          恭喜您完成了所有的注册.
+        <div>
+          <a  (click)="add(nameinput.value,passwordinput.value,emailer.value)"
+          routerLink="/main-page"
+          mat-button matStepperPrevious >返回主页</a>
+        </div>
+      </mat-step>
+  </mat-vertical-stepper>
+</div>

@@ -1,0 +1,24 @@
+<!-- 此界面实现导航条的功能 -->
+
+<mat-toolbar class="mat-elevation-z2 TOH-nav">
+  <!-- 此处div实现网页内容及作者的展示 -->
+  
+    <!-- 此处div实现导航条居中显示 -->
+  <div class="example-div2">
+    <a mat-button routerLink="/main-page" class="a1">
+      <mat-icon class="icon">home</mat-icon>首页
+    </a>
+    <a mat-button class="a1" routerLink="/users-remark">
+      <mat-icon class="icon" >star</mat-icon>评论专区
+    </a>
+    <a mat-button routerLink="/users-read" class="a1">
+      <mat-icon class="icon">chrome_reader_mode</mat-icon>新人必读
+    </a>
+    <a mat-button routerLink="/users-page" class="a1">
+      <mat-icon class="icon">perm_identity</mat-icon>个人主页
+    </a>
+    <a mat-button class="a1" routerLink="/message-board">
+      <mat-icon class='icon'>textsms</mat-icon>留言板
+    </a>
+  </div>
+</mat-toolbar>

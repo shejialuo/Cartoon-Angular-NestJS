@@ -1,0 +1,37 @@
+<div class>
+    <mat-vertical-stepper linear=false #stepper class="example-mat">
+        <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>基本信息确认</ng-template>
+                <mat-form-field>
+                    <input #emailer matInput placeholder="请输入您修改的邮箱" formControlName="firstCtrl" required email>
+                    <mat-error *ngIf="firstFormGroup.controls.firstCtrl.hasError('email')">
+                    请输入正确的邮箱地址</mat-error>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperNext (click)="email(emailer.value)" >下一步</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>验证信息</ng-template>
+                    <mat-form-field>
+                      <input #checknum matInput placeholder="验证码" formControlName="secondCtrl" required>
+                      <mat-hint *ngIf="flag" class="example-hint"> 验证码输入正确</mat-hint>
+                    </mat-form-field>
+                    <button mat-button (click)="check(checknum.value)"
+                    [disabled]="secondFormGroup.controls.secondCtrl.hasError('required')" >提交验证码</button>
+                <div>
+                      <button 
+                      (click)="changeEmail(user.username,emailer.value);"
+                      mat-button matStepperNext [disabled]="!flag">下一步</button>
+                </div>
+            </form>
+         </mat-step>
+        <mat-step>
+            <ng-template matStepLabel >完成</ng-template>
+                    恭喜您完成了邮箱的修改.
+            </mat-step>
+    </mat-vertical-stepper>
+</div>

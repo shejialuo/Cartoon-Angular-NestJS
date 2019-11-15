@@ -1,0 +1,26 @@
+.example-div1{
+    padding: 30px 0;
+    box-sizing: border-box;
+    background-size: cover;
+}
+.example-div2{
+    max-width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.example-div3{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.example-aside{
+    width: 30%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    margin-bottom: 15px;
+    display: block;
+}
+

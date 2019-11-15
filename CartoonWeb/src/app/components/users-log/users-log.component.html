@@ -1,0 +1,69 @@
+<!-- user-log.component.html -->
+<!-- 本组件的html文件主要实现以下功能 -->
+<!-- 1.便于美观，利用Angular Material现成的API组件进行组件搭建。 -->
+<!-- 2.实现基本的现代网页登陆功能 -->
+<!-- 3.本文件仅仅只实现最基本的界面设计，逻辑设计对应于user-log.component.ts -->
+
+<!-- 布局设置总体思路： -->
+
+<!-- 该登录页面作为主界面的侧栏 -->
+
+<aside class="example-aside1" *ngIf="!flag1" >
+      <!-- 设置登陆窗口的标签页 已完成-->
+      <div class="example-div1">登陆窗口</div>
+      <!-- 登陆表单 -->
+      <form class="example-form" >
+      <!-- 用户输入模块 已完成-->
+      <div>
+            <mat-form-field class="example-full-width">
+                  <input matInput placeholder="用户名" type="text" 
+                        [(ngModel)]="user.UserName" [ngModelOptions]="{standalone: true}">
+                  <button mat-button *ngIf="user.UserName" matSuffix mat-icon-button 
+                        aria-label="Clear" (click)="user.UserName=''" type="button">
+                        <mat-icon>close</mat-icon>
+                  </button>
+            </mat-form-field>
+      </div>
+      <!-- 设置用户密码输入部分 此部分已完成 -->
+      <div>
+            <mat-form-field class="example-full-width">
+                  <input class="example-input" matInput placeholder="密码" [type]="TypeAttribute" 
+                        [(ngModel)]="user.UserPassword" [ngModelOptions]="{standalone: true}">
+                  
+                  <button mat-button *ngIf="user.UserPassword && TypeAttribute=='password'" matSuffix mat-icon-button 
+                        aria-label="Visibility" (click)="OnclickVisible()" type="button">
+                        <mat-icon>visibility</mat-icon>
+                  </button>
+                  <button mat-button *ngIf="user.UserPassword && TypeAttribute=='text'" matSuffix mat-icon-button 
+                        aria-label="Invisibility" (click)="OnclickInvisible()" type="button">
+                        <mat-icon>visibility_off</mat-icon>
+                  </button>
+                  <mat-hint *ngIf="flag" style="color: red;">密码或用户名输入错误！</mat-hint>
+            </mat-form-field>
+      </div>
+
+      <!-- 跳转到找回密码的部分 -->
+
+      <a class="example-a" mat-button routerLink="/lost-and-found">忘记密码?</a>
+      <br/>
+
+      <div class="example-button-row">
+            <button class="e123" mat-flat-button
+            (click)="login(user.UserName,user.UserPassword)" >登陆</button>
+            <a class="e123" mat-flat-button routerLink="/users-register" >注册</a>
+      </div>
+      </form>
+</aside>
+
+<aside class="example-aside1" *ngIf="flag1" >
+      <!-- 设置登陆窗口的标签页 已完成-->
+      <!-- 登陆表单 -->
+      <form class="example-form" >
+      <!-- 用户输入模块 已完成-->
+      <div >
+            <p>欢迎您,{{flag1.userusename}}</p>
+            <button mat-button (click)="logOut()">登出</button>
+      </div>
+      </form>
+</aside>
+

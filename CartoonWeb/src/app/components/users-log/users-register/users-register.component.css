@@ -1,0 +1,31 @@
+/*此部分的界面设计已全部完成*/
+
+/*使注册界面居中*/
+
+.example-div1{
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 100px;
+    
+}
+
+/*对卡片进行修饰，已完成*/
+
+.example-mat-card{
+    border-left: 4px solid #d9534f;
+    font-size: 14px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 8px black;
+    background-color: rgba(230,238,232,0.5);
+    border-radius: 4px;
+}
+.example-mat{
+    margin-top: 20px;
+    box-shadow: 0px 0px 8px black;
+    background-color: rgba(230,238,232,0.5);
+    border-radius: 4px;
+}
+
+.example-hint{
+    color:blue;
+}

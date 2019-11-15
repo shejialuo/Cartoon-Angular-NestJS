@@ -1,0 +1,113 @@
+<div class="example-div1" *ngIf="user">
+    <div class="example-div2">
+        <div class="example-div3">
+            <div class="example-div4">
+                <mat-card class="container">
+                    <mat-card-content>
+                        <h3>用户基本信息</h3>
+                        <hr/>
+                        用户账号名： 
+                        <mat-form-field>
+                            <input matInput disabled [value]="user.username">
+                        </mat-form-field>
+                         用户名： 
+                        <mat-form-field>
+                            <input matInput [disabled]="!mat1.checked" 
+                            [(ngModel)]="user.userusename">
+                        </mat-form-field>
+                        <br/>
+                        性别：
+                        <mat-form-field>
+                            <input matInput [disabled]="!mat1.checked" 
+                            [(ngModel)]="user.usersex">
+                        </mat-form-field>
+                        QQ： 
+                        <mat-form-field>
+                            <input matInput [disabled]="!mat1.checked" 
+                            [(ngModel)]="user.userqq">
+                        </mat-form-field>
+                        <br/>
+                        微博账号： 
+                        <mat-form-field>
+                            <input matInput [disabled]="!mat1.checked" 
+                            [(ngModel)]="user.userwebo">
+                        </mat-form-field>
+                        邮箱地址： 
+                        <mat-form-field class="example-input1">
+                            <input matInput disabled 
+                            [value]="user.useremail">
+                        </mat-form-field>
+                        <br/> 
+                        生日：
+                        <mat-form-field >
+                            <input #birthday 
+                            matInput [matDatepicker]="picker"  [disabled]="!mat1.checked" >
+                            <mat-datepicker-toggle  matSuffix [for]="picker" ></mat-datepicker-toggle>
+                            <mat-datepicker  #picker></mat-datepicker>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="container">
+                    <mat-card-content>
+                        <h3>关于您自己</h3>
+                        <hr/>
+                        <mat-form-field class="example-input" >
+                            <mat-label>个人说明</mat-label>
+                            <textarea matInput [disabled]="!mat1.checked"
+                                      cdkTextareaAutosize
+                                      [(ngModel)]="user.userintroduction"
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="7"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="example-input" >
+                            <mat-label>兴趣爱好</mat-label>
+                            <textarea matInput [disabled]="!mat1.checked"
+                                      cdkTextareaAutosize
+                                      [(ngModel)]="user.userinterest"
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="7"></textarea>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        
+        <div class="example-aside">
+            <div>
+                <mat-slide-toggle #mat1 class="example-choose">
+                    修改个人信息</mat-slide-toggle>
+                    <br/><br/>
+                <button mat-button (click)="update(str)" *ngIf=mat1.checked>保存</button>
+            </div>
+            <br/> <br/> <br/> <br/>
+            <div>
+                <mat-slide-toggle #mat2 class="example-choose">
+                    修改密码</mat-slide-toggle>
+            </div>
+            <br/> <br/>
+            <div class="example-choose" *ngIf="mat2.checked">
+                <app-change-password></app-change-password>
+            </div>
+            <br/> <br/>
+            <div>
+                <mat-slide-toggle #mat3 class="example-choose">
+                    修改邮箱地址</mat-slide-toggle>
+            </div>
+            <br/> <br/>
+            <div class="example-choose" *ngIf="mat3.checked">
+                    <app-change-email></app-change-email>
+            </div>
+            <br/> <br/>
+        </div>
+    </div>
+</div>
+<div *ngIf="!user">
+    <div class="example-div5">
+      <mat-card class="example-mat-card">
+        <p>{{content}}</p>
+        <a mat-button routerLink="/main-page"> 返回首页</a>
+      </mat-card>
+      </div>
+</div>

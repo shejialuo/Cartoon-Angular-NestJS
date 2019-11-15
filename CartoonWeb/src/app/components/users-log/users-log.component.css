@@ -1,0 +1,52 @@
+/*本css文件实现user-log组件的特殊样式 */
+
+
+/* 对<div class="example-div1">请登录</div>进行修饰 */
+/* 此部分修饰已经完成*/
+
+.example-div1{
+  float: left;
+  font-size: 13px;
+}
+
+/*此部分对表单进行修饰，已经全部完成*/
+
+.example-form {
+    min-width: 150px;
+    max-width: 300px;
+    width: 85%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 8px black;
+    background-color: rgba(230,238,232,0.5);
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+
+  /*设计鼠标放在表单上面的格式，已经全部完成*/
+
+.example-form:hover{
+  box-shadow: 0px 0px 50px black;
+  background-color:rgba(255, 255, 255, 0.904);
+}
+
+.example-full-width {
+    width: 100%;
+  }
+.example-button-row button {
+  margin-right: 36px;
+}
+.example-a{
+  float: right; 
+  font-size: 12px;
+  padding: 2px;
+  font-weight: bold;
+  color: #3d4500;
+}
+.example-input{
+  background-color:transparent;
+}
+
+.e123{
+  background-color: transparent;
+}

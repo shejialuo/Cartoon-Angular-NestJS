@@ -1,0 +1,9 @@
+ @import '~@angular/material/prebuilt-themes/indigo-pink.css'; 
+ body{
+     background: url('F:/htmlproject/CartoonWeb/src/app/source/111.jpg')  no-repeat;
+     width: 100%;
+    background-size: 100%;
+    min-height: 900px;
+    padding-top: 30px;
+    background-attachment:fixed
+ }
