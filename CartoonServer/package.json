@@ -26,7 +26,7 @@
     "@nestjs/mongoose": "^6.1.2",
     "@nestjs/platform-express": "^6.7.2",
     "@nestjs/platform-fastify": "^6.8.5",
-    "apollo-server-fastify": "^2.9.7",
+    "apollo-server-fastify": "^2.14.2",
     "fastify-static": "^2.5.0",
     "graphql": "^14.5.8",
     "graphql-tools": "^4.0.6",
